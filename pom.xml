@@ -51,7 +51,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstreamVersion>3.0.0</upstreamVersion>
         <sourceUrl>https://github.com/jlong/sass-bootstrap/archive</sourceUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
 
     <build>
@@ -102,12 +102,6 @@
                 <version>2.3.2</version>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-                <targetPath>${destDir}</targetPath>
-            </resource>
-        </resources>
     </build>
 
 </project>
