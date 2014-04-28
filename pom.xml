@@ -11,7 +11,7 @@
     <groupId>org.webjars</groupId>
     <artifactId>bootstrap-sass</artifactId>
     <name>Sass Bootstrap</name>
-    <version>3.0.1-SNAPSHOT</version>
+    <version>3.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>WebJar for Sass Bootstrap</description>
     <url>http://webjars.org</url>
@@ -49,8 +49,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>3.0.0</upstreamVersion>
-        <sourceUrl>https://github.com/jlong/sass-bootstrap/archive</sourceUrl>
+        <upstreamVersion>3.1.1</upstreamVersion>
+        <sourceUrl>https://github.com/twbs/bootstrap-sass/archive</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
 
@@ -86,10 +86,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/sass-bootstrap-${upstreamVersion}/dist" includes="js/,css/,fonts/" />
-                                </move>
-                                <move todir="${destDir}/scss">
-                                    <fileset dir="${project.build.directory}/sass-bootstrap-${upstreamVersion}/lib" />
+                                    <fileset dir="${project.build.directory}/bootstrap-sass-${upstreamVersion}/vendor/assets" />
                                 </move>
                             </target>
                         </configuration>
@@ -99,7 +96,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>2.5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.5.1</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>sonatype-nexus-staging</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
     </build>
