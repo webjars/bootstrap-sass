@@ -11,7 +11,7 @@
     <groupId>org.webjars</groupId>
     <artifactId>bootstrap-sass</artifactId>
     <name>Bootstrap SASS</name>
-    <version>3.3.1-1-SNAPSHOT</version>
+    <version>3.3.1-1</version>
     <packaging>jar</packaging>
     <description>WebJar for Sass Bootstrap</description>
     <url>http://webjars.org</url>
@@ -36,7 +36,7 @@
         <url>http://github.com/webjars/bootstrap-sass</url>
         <connection>scm:git:https://github.com/webjars/bootstrap-sass.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/bootstrap-sass.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>bootstrap-sass-3.3.1-1</tag>
     </scm>
 
     <developers>
@@ -86,11 +86,11 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
-                                <echo message="moving resources"/>
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
+                                <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/bootstrap-sass-${upstreamVersion}/assets"/>
+                                    <fileset dir="${project.build.directory}/bootstrap-sass-${upstreamVersion}/assets" />
                                 </move>
                             </target>
                         </configuration>
